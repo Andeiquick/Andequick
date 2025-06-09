@@ -1,5 +1,4 @@
 <!-- Script para la funcionalidad de los sliders -->
-<script>
     document.addEventListener('DOMContentLoaded', function() {
         // Lógica del Slider principal
         const slides = document.querySelectorAll('.slider-item');
