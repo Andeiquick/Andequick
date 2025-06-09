@@ -1,45 +1,34 @@
 <!DOCTYPE html>
-<!-- El atributo lang="es" especifica que el idioma de la página es español -->
-<!-- La clase scroll-smooth permite un desplazamiento suave al hacer clic en enlaces internos -->
 <html lang="es" class="scroll-smooth">
 <head>
-    <!-- Define el conjunto de caracteres como UTF-8, que es estándar para la web -->
     <meta charset="UTF-8">
-    <!-- Asegura que la página se vea bien en todos los dispositivos (diseño responsivo) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- El título que aparece en la pestaña del navegador -->
     <title>Andequick - Compra con Confianza</title>
 
-    <!-- Importa el framework de CSS Tailwind para estilos rápidos y responsivos -->
-    <script src="https://cdn.tailwindcss.com"></script> 
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Importa la fuente "Inter" desde Google Fonts para una tipografía moderna -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    </style>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 text-gray-800">
-    
-    <!-- ========== ENCABEZADO Y NAVEGACIÓN ========== -->
+
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo y nombre de la empresa -->
-            <a href="/index/index.html" class="flex items-center space-x-2">
+            <a href="../index/index.html" class="flex items-center space-x-2">
                 <svg class="h-8 w-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" />
                 </svg>
                 <span class="text-2xl font-bold text-gray-900">Andequick</span>
             </a>
-            <!-- Menú de navegación para pantallas grandes -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/Politicas/Garantias.html" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Políticas Garantia</a>
-                <a href="/contacto/conctatanos.html" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Contacto</a>
+                <a href="../Polticas/Garantia.html" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Políticas Garantia</a>
+                <a href="./Web diseño/" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Contacto</a>
                 <a href="#productos" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Productos</a>
-                <a href="/Historia/Historia.html" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Historia</a>
+                <a href="../Historia/Historia.html" class="nav-link text-gray-500 hover:text-blue-600 transition duration-300">Historia</a>
             </div>
-            <!-- Botón de menú para móviles (hamburguesa) -->
             <div class="md:hidden">
                 <button class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -48,11 +37,8 @@
         </nav>
     </header>
 
-    <!-- ========== CONTENIDO PRINCIPAL ========== -->
     <main>
-        <!-- ========== SECCIÓN DEL CARRUSEL (SLIDER) ========== -->
         <section id="slider" class="relative h-[500px] w-full overflow-hidden">
-            <!-- Cada div.slider-item es una diapositiva -->
             <div class="slider-item absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
                 <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <div class="text-center text-white p-4">
@@ -78,7 +64,6 @@
                 </div>
             </div>
 
-            <!-- Botones de control del slider (anterior/siguiente) -->
             <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 text-white p-2 rounded-full hover:bg-white/40 transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
@@ -86,24 +71,19 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
 
-            <!-- Puntos indicadores de la diapositiva actual -->
             <div id="dots-container" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2"></div>
         </section>
 
-        <!-- ========== SECCIÓN DE PRODUCTOS DESTACADOS ========== -->
         <section id="productos" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="mb-16 text-center">
                     <h2 class="text-4xl font-extrabold text-gray-900">Nuestros Productos Destacados</h2>
                     <p class="mt-4 text-lg text-gray-500">Explora una selección de nuestros mejores artículos, elegidos para ti.</p>
                 </div>
-                <!-- Cuadrícula para mostrar los productos -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     
-                    <!-- Producto 1 -->
                     <div class="group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl">
-                        <!-- El enlace ahora envuelve la imagen. Al hacer clic en la imagen, te llevará a la página del producto. -->
-                        <a href="/Page-producto/Pagina-producto.html">
+                        <a href="../Page-producto/Pagina-producto.html">
                             <div class="relative h-64 overflow-hidden">
                                 <img src="https://images.pexels.com/photos/3766111/pexels-photo-3766111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Reloj Inteligente" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                             </div>
@@ -115,16 +95,13 @@
                                 <span class="text-2xl font-bold text-blue-600">$54.99</span>
                             </div>
                             <div class="mt-6">
-                                <!-- El botón también es un enlace que lleva a la misma página de producto. -->
-                                <a href="/Page-producto/Pagina-producto.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
+                                <a href="../Page-producto/Pagina-producto.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Producto 2 -->
                     <div class="group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl">
-                        <!-- El enlace envuelve la imagen -->
-                        <a href="/Page-producto/pagina-producto-2.html">
+                        <a href="../Page-producto/pagina-producto-2.html">
                             <div class="relative h-64 overflow-hidden">
                                 <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Auriculares Inalámbricos" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                             </div>
@@ -136,16 +113,13 @@
                                 <span class="text-2xl font-bold text-blue-600">$120.00</span>
                             </div>
                             <div class="mt-6">
-                                <!-- El botón también es un enlace -->
-                                <a href="/Page-producto/pagina-producto-2.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
+                                <a href="../Page-producto/pagina-producto-2.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Producto 3 -->
                     <div class="group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl">
-                         <!-- El enlace envuelve la imagen -->
-                        <a href="/Page-producto/pagina-producto-3.html">
+                            <a href="../Page-producto/pagina-producto-3.html">
                             <div class="relative h-64 overflow-hidden">
                                 <img src="https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Laptop Ultra Slim" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                             </div>
@@ -157,16 +131,13 @@
                                 <span class="text-2xl font-bold text-blue-600">$950.50</span>
                             </div>
                             <div class="mt-6">
-                                <!-- El botón también es un enlace -->
                                 <a href="../Page-producto/pagina-producto-3.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Producto 4 -->
                     <div class="group bg-white rounded-xl shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl">
-                        <!-- El enlace envuelve la imagen -->
-                        <a href="/Page-producto/pagina-producto-4.html">
+                        <a href="../Page-producto/pagina-producto-4.html">
                             <div class="relative h-64 overflow-hidden">
                                 <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Monitor 4K" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                             </div>
@@ -178,8 +149,7 @@
                                 <span class="text-2xl font-bold text-blue-600">$399.99</span>
                             </div>
                             <div class="mt-6">
-                                <!-- El botón también es un enlace -->
-                                <a href="/Page-producto/pagina-producto-4.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
+                                <a href="../Page-producto/pagina-producto-4.html" class="block w-full bg-blue-600 text-white text-center font-bold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">¡Lo quiero!</a>
                             </div>
                         </div>
                     </div>
@@ -187,7 +157,6 @@
             </div>
         </section>
         
-        <!-- ========== SECCIÓN 'POR QUÉ COMPRAR' ========== -->
         <section class="bg-slate-50 py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -195,7 +164,6 @@
                     <p class="mt-4 text-lg text-gray-500">Te ofrecemos la mejor experiencia de compra, de principio a fin.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Característica 1: Múltiples Formas de Pago -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="text-center">
                             <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
@@ -205,7 +173,6 @@
                             <p class="mt-2 text-gray-500">Aceptamos tarjetas y pago contra entrega.</p>
                         </div>
                     </div>
-                    <!-- Característica 2: Garantía -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="text-center">
                             <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
@@ -215,17 +182,15 @@
                             <p class="mt-2 text-gray-500">Devolución de tu dinero si no estás satisfecho.</p>
                         </div>
                     </div>
-                    <!-- Característica 3: Devoluciones -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="text-center">
                             <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
-                               <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 20h5v-5M20 4h-5v5" /></svg>
+                                <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 20h5v-5M20 4h-5v5" /></svg>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900">Devoluciones sin Costo</h3>
                             <p class="mt-2 text-gray-500">Proceso de devolución gratuito y sin complicaciones.</p>
                         </div>
                     </div>
-                    <!-- Característica 4: Soporte -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="text-center">
                             <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
@@ -239,7 +204,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN 'CONOCE A NUESTRO EQUIPO' ========== -->
         <section id="quienes-somos" class="bg-white py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -247,21 +211,18 @@
                     <p class="mt-4 text-lg text-gray-500">El motor detrás de cada entrega exitosa y cliente satisfecho.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    <!-- Miembro del equipo 1 -->
                     <div class="bg-slate-50 p-8 rounded-xl shadow-md text-center">
                         <img class="h-24 w-24 rounded-full object-cover mx-auto mb-4" src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de empleado">
                         <h3 class="text-xl font-bold text-gray-900">Carlos Mendoza</h3>
                         <p class="text-blue-600 font-semibold">Gerente de Logística</p>
                         <p class="text-gray-600 italic mt-4">"Mi pasión es asegurar que cada paquete llegue a su destino de forma rápida y segura. La eficiencia es nuestra promesa."</p>
                     </div>
-                    <!-- Miembro del equipo 2 -->
                     <div class="bg-slate-50 p-8 rounded-xl shadow-md text-center">
                         <img class="h-24 w-24 rounded-full object-cover mx-auto mb-4" src="https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de empleada">
                         <h3 class="text-xl font-bold text-gray-900">Ana Lucía</h3>
                         <p class="text-blue-600 font-semibold">Especialista en Soporte</p>
                         <p class="text-gray-600 italic mt-4">"Estoy aquí para resolver cualquier duda y garantizar que cada cliente se sienta valorado. Su satisfacción es mi objetivo."</p>
                     </div>
-                    <!-- Miembro del equipo 3 -->
                     <div class="bg-slate-50 p-8 rounded-xl shadow-md text-center">
                         <img class="h-24 w-24 rounded-full object-cover mx-auto mb-4" src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de empleado">
                         <h3 class="text-xl font-bold text-gray-900">Javier Torres</h3>
@@ -272,7 +233,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN DE TESTIMONIOS ========== -->
         <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-24">
              <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -280,7 +240,6 @@
                     <p class="mt-4 text-lg text-gray-600">La confianza de nuestros clientes es nuestro mayor orgullo.</p>
                 </div>
                 <div id="testimonial-slider" class="relative max-w-3xl mx-auto">
-                    <!-- Testimonio 1 -->
                     <div class="testimonial-slide active">
                         <div class="bg-white p-8 rounded-xl shadow-lg relative">
                             <svg class="absolute top-6 left-6 w-16 h-16 text-slate-100" fill="currentColor" viewBox="0 0 32 32"><path d="M9.333 4C4.186 4 0 8.186 0 13.333c0 3.12 1.583 5.88 3.943 7.623L3.6 25.6l4.88-4.88C8.84 20.76 9.103 20.733 9.333 20.733c5.147 0 9.333-4.186 9.333-9.4S14.48 4 9.333 4zm13.334 0c-5.147 0-9.333 4.186-9.333 9.333 0 3.12 1.583 5.88 3.943 7.623L16.96 25.6l4.88-4.88c.357.04.723.067.92.067 5.147 0 9.333-4.186 9.333-9.4S27.814 4 22.667 4z"></path></svg>
@@ -293,7 +252,6 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center mb-4">
-                                    <!-- Estrellas de calificación -->
                                     <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                 </div>
                                 <p class="text-gray-700 text-lg leading-relaxed">"Andequick ha superado todas mis expectativas. La calidad es increíble y el servicio al cliente es de primera. ¡Mi tienda de confianza!"</p>
@@ -304,7 +262,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN 'QUIÉNES SOMOS' ========== -->
         <section id="quienes-somos" class="bg-white py-24">
             <div class="container mx-auto px-6">
                 <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -315,7 +272,6 @@
                         <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Nuestra Misión es tu Confianza</h2>
                         <p class="mt-4 text-lg text-gray-600">En Andequick, nacimos con el objetivo de ofrecer una experiencia de compra segura, fácil y satisfactoria. Creemos que el comercio electrónico debe ser accesible y fiable para todos.</p>
                         <dl class="mt-10 space-y-10">
-                            <!-- Ventaja 1 -->
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
@@ -327,7 +283,6 @@
                                     <dd class="mt-2 text-base text-gray-500">Transparencia total en cada transacción para tu tranquilidad.</dd>
                                 </div>
                             </div>
-                            <!-- Ventaja 2 -->
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
@@ -339,7 +294,6 @@
                                     <dd class="mt-2 text-base text-gray-500">Productos seleccionados que cumplen con los más altos estándares.</dd>
                                 </div>
                             </div>
-                            <!-- Ventaja 3 -->
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
@@ -358,11 +312,9 @@
         </section>
     </main>
 
-    <!-- ========== PIE DE PÁGINA ========== -->
     <footer class="bg-gray-900 text-gray-400">
         <div class="container mx-auto px-6 py-16">
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-                <!-- Columna del logo -->
                 <div class="col-span-2 md:col-span-4 lg:col-span-1">
                     <a href="#" class="flex items-center space-x-2">
                         <svg class="h-8 w-auto text-blue-500" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" /></svg>
@@ -370,24 +322,21 @@
                     </a>
                     <p class="mt-4 text-gray-500 text-base">Construyendo confianza en cada compra.</p>
                 </div>
-                <!-- Columna de Políticas -->
                 <div>
                     <h3 class="font-semibold text-white tracking-wider uppercase">Políticas</h3>
                     <ul class="mt-4 space-y-4">
-                        <li><a href="/Polticas/Garantia.html" class="text-base text-gray-400 hover:text-white">Garantía</a></li>
-                        <li><a href="/Polticas/Envios.html" class="text-base text-gray-400 hover:text-white">Envíos</a></li>
-                        <li><a href="/Polticas/Terminos.html" class="text-base text-gray-400 hover:text-white">Términos</a></li>
+                        <li><a href="../Polticas/Garantia.html" class="text-base text-gray-400 hover:text-white">Garantía</a></li>
+                        <li><a href="../Polticas/Envios.html" class="text-base text-gray-400 hover:text-white">Envíos</a></li>
+                        <li><a href="../Polticas/Terminos.html" class="text-base text-gray-400 hover:text-white">Términos</a></li>
                     </ul>
                 </div>
-                <!-- Columna de Ayuda -->
                 <div>
                     <h3 class="font-semibold text-white tracking-wider uppercase">Ayuda</h3>
                     <ul class="mt-4 space-y-4">
-                        <li><a href="/contacto/conctatanos.html" class="text-base text-gray-400 hover:text-white">Contáctanos</a></li>
-                        <li><a href="/Ratreo/rastreo.html" class="text-base text-gray-400 hover:text-white">Seguimiento</a></li>
+                        <li><a href="../contacto/conctatanos.html" class="text-base text-gray-400 hover:text-white">Contáctanos</a></li>
+                        <li><a href="../Ratreo/rastreo.html" class="text-base text-gray-400 hover:text-white">Seguimiento</a></li>
                     </ul>
                 </div>
-                <!-- Columna de Contacto -->
                 <div>
                     <h3 class="font-semibold text-white tracking-wider uppercase">Contacto</h3>
                     <ul class="mt-4 space-y-4">
@@ -401,7 +350,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Columna de Transportadoras -->
                 <div>
                     <h3 class="font-semibold text-white tracking-wider uppercase">Transportadoras</h3>
                     <ul class="mt-4 space-y-4">
@@ -412,7 +360,6 @@
                     </ul>
                 </div>
             </div>
-            <!-- Sección de Copyright y Redes Sociales -->
             <div class="border-t border-gray-800 pt-8 mt-8 sm:flex sm:items-center sm:justify-between">
                 <div class="flex space-x-6 sm:order-2">
                     <a href="https://www.facebook.com/andequick9" aria-label="Facebook" class="text-gray-500 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z"></path></svg></a>
@@ -424,8 +371,8 @@
             </div>
         </div>
     </footer>
-<script>
- </script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
-
