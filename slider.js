@@ -88,4 +88,3 @@
             showTestimonial(0); // Iniciar el slider de testimonios
         }
     });
-</script>
