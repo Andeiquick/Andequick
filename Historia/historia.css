@@ -1,0 +1,30 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+}
+
+.timeline-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-line {
+    width: 4px;
+    background-color: #e5e7eb;
+}
+
+.timeline-point {
+    background-color: white;
+    border: 4px solid #e5e7eb;
+    transition: border-color 0.6s ease-out;
+}
+
+.timeline-item.is-visible .timeline-point {
+    border-color: #3b82f6;
+}
