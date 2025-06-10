@@ -1,22 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // =================================================================
-    // CÓDIGO QUE YA ESTABA (SLIDER PRINCIPAL Y TESTIMONIOS)
-    // =================================================================
+    // --- Mobile Menu Toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // --- Main Hero Slider Logic ---
     const slides = document.querySelectorAll('.slider-item');
     const dotsContainer = document.getElementById('dots-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
     let currentSlide = 0;
     let slideInterval;
 
-    // Se ejecuta solo si encuentra los elementos del slider principal
-    if (slides.length > 0 && dotsContainer) {
+    // Initialize main slider only if elements exist
+    if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
+        
+        // Create navigation dots
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
-            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white/50', 'transition-colors');
+            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white/50', 'transition-colors', 'duration-300');
             dot.addEventListener('click', () => {
                 goToSlide(index);
-                resetInterval();
+                resetInterval(); // Reset auto-slide on manual navigation
             });
             dotsContainer.appendChild(dot);
         });
@@ -24,29 +35,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const dots = dotsContainer.querySelectorAll('button');
 
         function goToSlide(n) {
-            if(slides[currentSlide]) slides[currentSlide].classList.remove('opacity-100');
-            if(dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.remove('bg-white');
+            // Hide current slide and deactivate dot
+            if (slides[currentSlide]) slides[currentSlide].classList.remove('opacity-100');
+            if (dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.remove('bg-white');
             
+            // Calculate next slide index
             currentSlide = (n + slides.length) % slides.length;
             
-            if(slides[currentSlide]) slides[currentSlide].classList.add('opacity-100');
-            if(dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.add('bg-white');
+            // Show new slide and activate dot
+            if (slides[currentSlide]) slides[currentSlide].classList.add('opacity-100');
+            if (dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.add('bg-white');
         }
 
-        document.getElementById('prevBtn').addEventListener('click', () => {
+        // Button event listeners
+        prevBtn.addEventListener('click', () => {
             goToSlide(currentSlide - 1);
             resetInterval();
         });
 
-        document.getElementById('nextBtn').addEventListener('click', () => {
+        nextBtn.addEventListener('click', () => {
             goToSlide(currentSlide + 1);
             resetInterval();
         });
 
+        // Auto-sliding functionality
         function startInterval() {
             slideInterval = setInterval(() => {
                 goToSlide(currentSlide + 1);
-            }, 5000);
+            }, 5000); // Change slide every 5 seconds
         }
 
         function resetInterval() {
@@ -54,30 +70,35 @@ document.addEventListener('DOMContentLoaded', function() {
             startInterval();
         }
 
+        // Initial setup
         goToSlide(0);
         startInterval();
     }
 
+    // --- Testimonial Slider Logic ---
     const testimonialSlider = document.getElementById('testimonial-slider');
     if (testimonialSlider) {
         const testimonialSlides = testimonialSlider.querySelectorAll('.testimonial-slide');
+        const prevTestimonialButton = document.getElementById('prevTestimonial');
+        const nextTestimonialButton = document.getElementById('nextTestimonial');
         let currentTestimonial = 0;
 
         function showTestimonial(n) {
             if (testimonialSlides.length > 0) {
-                 if (testimonialSlides[currentTestimonial]) {
+                // Hide current testimonial
+                if (testimonialSlides[currentTestimonial]) {
                     testimonialSlides[currentTestimonial].classList.remove('active');
                 }
+                // Calculate next testimonial index
                 currentTestimonial = (n + testimonialSlides.length) % testimonialSlides.length;
+                // Show new testimonial
                 if (testimonialSlides[currentTestimonial]) {
                     testimonialSlides[currentTestimonial].classList.add('active');
                 }
             }
         }
         
-        const prevTestimonialButton = document.getElementById('prevTestimonial');
-        const nextTestimonialButton = document.getElementById('nextTestimonial');
-
+        // Check if buttons exist before adding listeners
         if (prevTestimonialButton && nextTestimonialButton) {
             prevTestimonialButton.addEventListener('click', () => {
                 showTestimonial(currentTestimonial - 1);
@@ -88,7 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        showTestimonial(0);
+        // Show the first testimonial initially
+        if (testimonialSlides.length > 0) {
+             showTestimonial(0);
+        }
     }
-
-    
+});
