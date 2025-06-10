@@ -1,6 +1,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f8fafc; /* slate-50 */
+    overflow-x: hidden; /* Prevent horizontal scroll on the whole page */
 }
 
 .nav-link {
@@ -27,17 +28,19 @@ body {
     transition: opacity 1s ease-in-out;
 }
 
+/* Testimonial Slider Styles - FIX */
 .testimonial-slide {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s;
 }
 
 .testimonial-slide.active {
-    display: block;
-    animation: fadeIn 0.5s ease-in-out;
+    position: relative; /* Use relative to take up space and define container height */
+    opacity: 1;
+    visibility: visible;
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
