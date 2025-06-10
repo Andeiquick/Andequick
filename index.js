@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const prevTestimonialButton = document.getElementById('prevTestimonial');
         const nextTestimonialButton = document.getElementById('nextTestimonial');
         let currentTestimonial = 0;
+        let testimonialInterval;
         let testimonialTouchStartX = 0;
         let testimonialTouchEndX = 0;
 
@@ -126,14 +127,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
+        // Auto-sliding functionality for testimonials
+        function startTestimonialInterval() {
+            testimonialInterval = setInterval(() => {
+                showTestimonial(currentTestimonial + 1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function resetTestimonialInterval() {
+            clearInterval(testimonialInterval);
+            startTestimonialInterval();
+        }
+
         // Check if buttons exist before adding listeners
         if (prevTestimonialButton && nextTestimonialButton) {
             prevTestimonialButton.addEventListener('click', () => {
                 showTestimonial(currentTestimonial - 1);
+                resetTestimonialInterval();
             });
 
             nextTestimonialButton.addEventListener('click', () => {
                 showTestimonial(currentTestimonial + 1);
+                resetTestimonialInterval();
             });
         }
         
@@ -151,17 +166,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (testimonialTouchEndX < testimonialTouchStartX - 50) {
                 // Swiped left
                 showTestimonial(currentTestimonial + 1);
+                resetTestimonialInterval();
             }
             if (testimonialTouchEndX > testimonialTouchStartX + 50) {
                 // Swiped right
                 showTestimonial(currentTestimonial - 1);
+                resetTestimonialInterval();
             }
         }
 
-        // Show the first testimonial initially
+        // Show the first testimonial initially and start auto-slide
         if (testimonialSlides.length > 0) {
              showTestimonial(0);
+             startTestimonialInterval();
         }
     }
 });
-
