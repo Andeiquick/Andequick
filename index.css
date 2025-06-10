@@ -28,7 +28,7 @@ body {
     transition: opacity 1s ease-in-out;
 }
 
-/* Testimonial Slider Styles - FIX */
+/* Testimonial Slider Styles */
 .testimonial-slide {
     position: absolute;
     top: 0;
@@ -43,4 +43,31 @@ body {
     position: relative; /* Use relative to take up space and define container height */
     opacity: 1;
     visibility: visible;
+}
+
+
+/* --- REPOSICIONAMIENTO DE LAS FLECHAS DE TESTIMONIOS --- */
+#prevTestimonial, #nextTestimonial {
+    /* Nos aseguramos que las flechas sean visibles */
+    display: block; 
+    
+    /* Las mantenemos centradas verticalmente */
+    top: 50%; 
+    
+    /* Un z-index alto para que estén por encima de otros elementos */
+    z-index: 10; 
+}
+
+/* Posicionar la flecha IZQUIERDA DENTRO del contenedor */
+#prevTestimonial {
+    left: 1rem; /* 16px desde la izquierda */
+    /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
+    transform: translateY(-50%); 
+}
+
+/* Posicionar la flecha DERECHA DENTRO del contenedor */
+#nextTestimonial {
+    right: 1rem; /* 16px desde la derecha */
+    /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
+    transform: translateY(-50%);
 }
