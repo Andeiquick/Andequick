@@ -11,12 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- Main Hero Slider Logic ---
+    const slider = document.getElementById('slider');
     const slides = document.querySelectorAll('.slider-item');
     const dotsContainer = document.getElementById('dots-container');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentSlide = 0;
     let slideInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Initialize main slider only if elements exist
     if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
@@ -69,6 +72,29 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(slideInterval);
             startInterval();
         }
+        
+        // Touch swipe functionality
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swiped left
+                goToSlide(currentSlide + 1);
+                resetInterval();
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swiped right
+                goToSlide(currentSlide - 1);
+                resetInterval();
+            }
+        }
 
         // Initial setup
         goToSlide(0);
@@ -82,6 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const prevTestimonialButton = document.getElementById('prevTestimonial');
         const nextTestimonialButton = document.getElementById('nextTestimonial');
         let currentTestimonial = 0;
+        let testimonialTouchStartX = 0;
+        let testimonialTouchEndX = 0;
 
         function showTestimonial(n) {
             if (testimonialSlides.length > 0) {
@@ -108,6 +136,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 showTestimonial(currentTestimonial + 1);
             });
         }
+        
+        // Touch swipe functionality for testimonials
+        testimonialSlider.addEventListener('touchstart', e => {
+            testimonialTouchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        testimonialSlider.addEventListener('touchend', e => {
+            testimonialTouchEndX = e.changedTouches[0].screenX;
+            handleTestimonialSwipe();
+        }, false);
+
+        function handleTestimonialSwipe() {
+            if (testimonialTouchEndX < testimonialTouchStartX - 50) {
+                // Swiped left
+                showTestimonial(currentTestimonial + 1);
+            }
+            if (testimonialTouchEndX > testimonialTouchStartX + 50) {
+                // Swiped right
+                showTestimonial(currentTestimonial - 1);
+            }
+        }
 
         // Show the first testimonial initially
         if (testimonialSlides.length > 0) {
@@ -115,3 +164,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
