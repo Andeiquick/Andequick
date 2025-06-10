@@ -28,7 +28,7 @@ body {
     transition: opacity 1s ease-in-out;
 }
 
-/* Testimonial Slider Styles - FIX */
+/* Testimonial Slider Styles */
 .testimonial-slide {
     position: absolute;
     top: 0;
@@ -43,4 +43,20 @@ body {
     position: relative; /* Use relative to take up space and define container height */
     opacity: 1;
     visibility: visible;
+}
+
+/* --- HIDE TESTIMONIAL ARROWS --- */
+#prevTestimonial, #nextTestimonial {
+    display: none;
+}
+
+/* --- FIX FOR TESTIMONIAL ARROWS ON MOBILE (Original code retained but not active due to display:none) --- */
+#testimonial-slider-container {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    #prevTestimonial, #nextTestimonial {
+        /* These rules are no longer necessary as the elements are hidden */
+    }
 }
