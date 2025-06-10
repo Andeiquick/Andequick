@@ -1,6 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8fafc;
+    background-color: #f8fafc; /* slate-50 */
 }
 
 .nav-link {
@@ -14,7 +14,7 @@ body {
     height: 2px;
     bottom: -4px;
     left: 50%;
-    background-color: #3b82f6;
+    background-color: #3b82f6; /* blue-600 */
     transition: all 0.3s ease-in-out;
 }
 
