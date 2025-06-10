@@ -91,41 +91,4 @@ document.addEventListener('DOMContentLoaded', function() {
         showTestimonial(0);
     }
 
-    // =================================================================
-    // CÓDIGO NUEVO (SLIDER DE PRODUCTOS CON SWIPER)
-    // =================================================================
     
-    // Verificamos si el elemento del slider de productos existe antes de correr el código
-    if (document.querySelector('.product-slider')) {
-        const productSlider = new Swiper('.product-slider', {
-            // Cuántos productos se ven a la vez (responsive)
-            slidesPerView: 2, // 2 en móvil
-            spaceBetween: 16, // Espacio entre productos
-            
-            breakpoints: {
-                // Cuando la pantalla es >= 768px
-                768: {
-                  slidesPerView: 3, // Muestra 3 productos
-                  spaceBetween: 24
-                },
-                // Cuando la pantalla es >= 1024px
-                1024: {
-                  slidesPerView: 4, // Muestra 4 productos
-                  spaceBetween: 32
-                }
-            },
-          
-            // Botones de navegación (flechas)
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-    
-            // Permite arrastrar con el mouse en escritorio y usar teclado
-            mousewheel: true,
-            keyboard: true,
-        });
-    }
-
-});
-
