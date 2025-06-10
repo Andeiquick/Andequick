@@ -1,94 +1,187 @@
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8fafc; /* slate-50 */
-    overflow-x: hidden; /* Prevent horizontal scroll on the whole page */
-}
 
-.nav-link {
-    position: relative;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    
+   document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- Mobile Menu Toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 50%;
-    background-color: #3b82f6; /* blue-600 */
-    transition: all 0.3s ease-in-out;
-}
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 
-.nav-link:hover::after {
-    width: 100%;
-    left: 0;
-}
+    // --- Main Hero Slider Logic ---
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slider-item');
+    const dotsContainer = document.getElementById('dots-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = 0;
+    let slideInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-.slider-item {
-    transition: opacity 1s ease-in-out;
-}
-
-/* Testimonial Slider Styles */
-.testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s;
-}
-
-.testimonial-slide.active {
-    position: relative; /* Use relative to take up space and define container height */
-    opacity: 1;
-    visibility: visible;
-}
-
-/* --- FIX FOR TESTIMONIAL ARROWS ON MOBILE --- */
-/* Selects the container of the testimonial slider to ensure context */
-#testimonial-slider-container {
-    position: relative;
-}
-
-/* Styles for testimonial navigation buttons */
-#prevTestimonial, #nextTestimonial {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /* Adjust size and appearance if needed */
-    z-index: 10;
-}
-
-#prevTestimonial {
-    left: -20px; /* Default position for larger screens */
-}
-
-#nextTestimonial {
-    right: -20px; /* Default position for larger screens */
-}
-
-
-/* Media query for mobile devices (e.g., screen width up to 768px) */
-@media (max-width: 768px) {
-    #prevTestimonial, #nextTestimonial {
-        /* Make arrows smaller on mobile */
-        width: 32px;  /* Example size, adjust as needed */
-        height: 32px; /* Example size, adjust as needed */
+    // Initialize main slider only if elements exist
+    if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
         
-        /* Reposition arrows to be inside the container */
-        top: auto; /* Unset top positioning */
-        bottom: 0px; /* Position them at the bottom of the quote box */
-        transform: translateY(0); /* Reset transform */
+        // Create navigation dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white/50', 'transition-colors', 'duration-300');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetInterval(); // Reset auto-slide on manual navigation
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('button');
+
+        function goToSlide(n) {
+            // Hide current slide and deactivate dot
+            if (slides[currentSlide]) slides[currentSlide].classList.remove('opacity-100');
+            if (dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.remove('bg-white');
+            
+            // Calculate next slide index
+            currentSlide = (n + slides.length) % slides.length;
+            
+            // Show new slide and activate dot
+            if (slides[currentSlide]) slides[currentSlide].classList.add('opacity-100');
+            if (dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.add('bg-white');
+        }
+
+        // Button event listeners
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentSlide - 1);
+            resetInterval();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentSlide + 1);
+            resetInterval();
+        });
+
+        // Auto-sliding functionality
+        function startInterval() {
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+        
+        // Touch swipe functionality
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swiped left
+                goToSlide(currentSlide + 1);
+                resetInterval();
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swiped right
+                goToSlide(currentSlide - 1);
+                resetInterval();
+            }
+        }
+
+        // Initial setup
+        goToSlide(0);
+        startInterval();
     }
 
-    #prevTestimonial {
-        /* Position from the right to align with the next button */
-        left: auto;
-        right: 48px; /* Place it next to the 'next' button with some space */
-    }
+    // --- Testimonial Slider Logic ---
+    const testimonialSlider = document.getElementById('testimonial-slider');
+    if (testimonialSlider) {
+        const testimonialSlides = testimonialSlider.querySelectorAll('.testimonial-slide');
+        const prevTestimonialButton = document.getElementById('prevTestimonial');
+        const nextTestimonialButton = document.getElementById('nextTestimonial');
+        let currentTestimonial = 0;
+        let testimonialInterval;
+        let testimonialTouchStartX = 0;
+        let testimonialTouchEndX = 0;
 
-    #nextTestimonial {
-        right: 10px; /* Position inside the container from the right */
+        function showTestimonial(n) {
+            if (testimonialSlides.length > 0) {
+                // Hide current testimonial
+                if (testimonialSlides[currentTestimonial]) {
+                    testimonialSlides[currentTestimonial].classList.remove('active');
+                }
+                // Calculate next testimonial index
+                currentTestimonial = (n + testimonialSlides.length) % testimonialSlides.length;
+                // Show new testimonial
+                if (testimonialSlides[currentTestimonial]) {
+                    testimonialSlides[currentTestimonial].classList.add('active');
+                }
+            }
+        }
+        
+        // Auto-sliding functionality for testimonials
+        function startTestimonialInterval() {
+            testimonialInterval = setInterval(() => {
+                showTestimonial(currentTestimonial + 1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function resetTestimonialInterval() {
+            clearInterval(testimonialInterval);
+            startTestimonialInterval();
+        }
+
+        // Check if buttons exist before adding listeners
+        if (prevTestimonialButton && nextTestimonialButton) {
+            prevTestimonialButton.addEventListener('click', () => {
+                showTestimonial(currentTestimonial - 1);
+                resetTestimonialInterval();
+            });
+
+            nextTestimonialButton.addEventListener('click', () => {
+                showTestimonial(currentTestimonial + 1);
+                resetTestimonialInterval();
+            });
+        }
+        
+        // Touch swipe functionality for testimonials
+        testimonialSlider.addEventListener('touchstart', e => {
+            testimonialTouchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        testimonialSlider.addEventListener('touchend', e => {
+            testimonialTouchEndX = e.changedTouches[0].screenX;
+            handleTestimonialSwipe();
+        }, false);
+
+        function handleTestimonialSwipe() {
+            if (testimonialTouchEndX < testimonialTouchStartX - 50) {
+                // Swiped left
+                showTestimonial(currentTestimonial + 1);
+                resetTestimonialInterval();
+            }
+            if (testimonialTouchEndX > testimonialTouchStartX + 50) {
+                // Swiped right
+                showTestimonial(currentTestimonial - 1);
+                resetTestimonialInterval();
+            }
+        }
+
+        // Show the first testimonial initially and start auto-slide
+        if (testimonialSlides.length > 0) {
+             showTestimonial(0);
+             startTestimonialInterval();
+        }
     }
-}
+});
