@@ -58,17 +58,21 @@ body {
     z-index: 10;  
 }
 
-/* Posicionar la flecha IZQUIERDA DENTRO del contenedor */
+/* Posicionar la flecha IZQUIERDA dentro del contenedor */
 #prevTestimonial {
-    left: 0.90rem; /* 14px desde la izquierda */
-    /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
-    transform: translateY(-50%);  
+    position: absolute;
+    top: 50%;
+    left: 0.5rem; /* Aproximadamente 8px desde el borde izquierdo */
+    transform: translateY(-50%);
+    z-index: 10; /* Asegura que esté encima de otros elementos */
 }
 
-/* Posicionar la flecha DERECHA DENTRO del contenedor */
+/* Posicionar la flecha DERECHA dentro del contenedor */
 #nextTestimonial {
-    right: 0.90rem; /* 14px desde la derecha */
-    /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
+    position: absolute;
+    top: 50%;
+    right: 0.5rem; /* Aproximadamente 8px desde el borde derecho */
     transform: translateY(-50%);
+    z-index: 10;
 }
 
