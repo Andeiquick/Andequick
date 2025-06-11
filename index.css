@@ -60,7 +60,7 @@ body {
 
 /* Posicionar la flecha IZQUIERDA DENTRO del contenedor */
 #prevTestimonial {
-    left: 9rem; /* 14px desde la izquierda */
+    left: 8.05rem; /* 14px desde la izquierda */
     /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
     transform: translateY(-50%);  
 }
