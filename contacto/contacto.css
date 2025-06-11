@@ -1,3 +1,18 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
+/* Define la animación para el fondo */
+@keyframes kenburns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.15) translate(-2%, 2%);
+    }
+}
+
+/* Aplica la animación a la imagen de fondo */
+.animated-background {
+    animation: kenburns 30s ease-out alternate-reverse infinite;
+}
