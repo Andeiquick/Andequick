@@ -58,21 +58,28 @@ body {
     z-index: 10;  
 }
 
-/* Posicionar la flecha IZQUIERDA dentro del contenedor */
+/* Flecha izquierda posicionada más abajo y fuera del área de las estrellas */
 #prevTestimonial {
     position: absolute;
-    top: 50%;
-    left: 0.5rem; /* Aproximadamente 8px desde el borde izquierdo */
+    top: 60%; /* Estaba en 50%, la bajamos un poco */
+    left: 0.5rem;
     transform: translateY(-50%);
-    z-index: 10; /* Asegura que esté encima de otros elementos */
+    z-index: 1; /* Menor prioridad que el contenido de estrellas */
+    background-color: white; /* Opcional: para que no se traslape visualmente */
+    border-radius: 9999px;
+    padding: 0.25rem;
 }
 
-/* Posicionar la flecha DERECHA dentro del contenedor */
+/* Flecha derecha igual, para mantener simetría */
 #nextTestimonial {
     position: absolute;
-    top: 50%;
-    right: 0.5rem; /* Aproximadamente 8px desde el borde derecho */
+    top: 60%;
+    right: 0.5rem;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 1;
+    background-color: white;
+    border-radius: 9999px;
+    padding: 0.25rem;
 }
+
 
