@@ -25,7 +25,7 @@ body {
 }
 
 .slider-item {
-    transition: opacity 1s ease-in-out;
+    /* The transition is handled by Tailwind classes now for consistency */
 }
 
 /* Testimonial Slider Styles */
@@ -49,25 +49,26 @@ body {
 /* --- REPOSICIONAMIENTO DE LAS FLECHAS DE TESTIMONIOS --- */
 #prevTestimonial, #nextTestimonial {
     /* Nos aseguramos que las flechas sean visibles */
-    display: block; 
+    display: block;  
     
     /* Las mantenemos centradas verticalmente */
-    top: 50%; 
+    top: 50%;  
     
     /* Un z-index alto para que estén por encima de otros elementos */
-    z-index: 10; 
+    z-index: 10;  
 }
 
 /* Posicionar la flecha IZQUIERDA DENTRO del contenedor */
 #prevTestimonial {
-    left: 1rem; /* 16px desde la izquierda */
+    left: 0.875rem; /* 14px desde la izquierda */
     /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
-    transform: translateY(-50%); 
+    transform: translateY(-50%);  
 }
 
 /* Posicionar la flecha DERECHA DENTRO del contenedor */
 #nextTestimonial {
-    right: 1rem; /* 16px desde la derecha */
+    right: 0.875rem; /* 14px desde la derecha */
     /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
     transform: translateY(-50%);
 }
+
