@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="contactos.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="contactos.css"> 
 </head>
 <body class="bg-slate-50">
 
@@ -23,20 +24,20 @@
         
         <div class="relative min-h-screen flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
-                 <a href="/index.html" class="inline-flex items-center space-x-2">
-                    <svg class="h-10 w-auto text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" />
-                    </svg>
-                    <span class="text-4xl font-bold text-white">Andequick</span>
-                </a>
+                 <a href="index.html" class="inline-flex items-center space-x-2">
+                     <svg class="h-7 w-auto text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" />
+                     </svg>
+                     <span class="text-2xl font-bold text-white">Andequick</span>
+                 </a>
             </div>
 
             <div class="max-w-xl w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8 space-y-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-gray-900">
+                    <h2 class="text-xl font-extrabold text-gray-900">
                         Estamos para Ayudarte
                     </h2>
-                    <p class="mt-2 text-lg text-gray-600">
+                    <p class="mt-2 text-sm text-gray-600">
                         Envíanos un mensaje directo por WhatsApp.
                     </p>
                 </div>
@@ -65,11 +66,12 @@
                 </form>
             </div>
              <div class="text-center mt-8">
-                <a href="/index.html" class="font-medium text-blue-300 hover:text-blue-200 transition">← Volver a la página principal</a>
-            </div>
+                 <!-- CAMBIO: Se hizo más pequeño el texto del enlace -->
+                 <a href="/index.html" class="text-sm font-medium text-blue-300 hover:text-blue-200 transition">← Volver a la página principal</a>
+             </div>
         </div>
     </div>
 
-    <script src="contacto.js"></script>
+    <script src="contacto.js"></script> 
 </body>
 </html>
