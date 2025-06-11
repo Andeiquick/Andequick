@@ -40,38 +40,35 @@ body {
 }
 
 .testimonial-slide.active {
-    position: relative; /* Use relative to take up espacio y definir altura */
+    position: relative; /* Use relative to take up space and define container height */
     opacity: 1;
     visibility: visible;
 }
 
-/* Ocultar flechas por defecto (en móviles) */
-#prevTestimonial,
-#nextTestimonial {
+
+/* --- REPOSICIONAMIENTO DE LAS FLECHAS DE TESTIMONIOS --- */
+#prevTestimonial, #nextTestimonial {
+    /* Ocultar las flechas por defecto en pantallas pequeñas (móviles) */
     display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
-/* Mostrar y ubicar flechas FUERA del contenedor en pantallas grandes */
+/* Mostrar y posicionar las flechas fuera del contenedor en pantallas medianas y grandes */
 @media (min-width: 768px) {
-    #prevTestimonial,
-    #nextTestimonial {
+    #prevTestimonial, #nextTestimonial {
         display: block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: white;
-        border-radius: 9999px;
-        padding: 0.5rem;
-        z-index: 10;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Opcional */
     }
 
+    /* Posicionar la flecha IZQUIERDA FUERA del contenedor */
     #prevTestimonial {
-        left: -2rem; /* ¡Flecha izquierda FUERA del contenedor! */
+        left: -3rem; /* Mueve la flecha fuera del borde izquierdo */
     }
 
+    /* Posicionar la flecha DERECHA FUERA del contenedor */
     #nextTestimonial {
-        right: -2rem; /* ¡Flecha derecha FUERA del contenedor! */
+        right: -3rem; /* Mueve la flecha fuera del borde derecho */
     }
 }
-
