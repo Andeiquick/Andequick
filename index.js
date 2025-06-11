@@ -1,7 +1,4 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-    
-   document.addEventListener('DOMContentLoaded', function() {
     
     // --- Mobile Menu Toggle ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -25,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchEndX = 0;
 
     // Initialize main slider only if elements exist
-    if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
+    if (slider && slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
         
         // Create navigation dots
         slides.forEach((_, index) => {
@@ -41,16 +38,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const dots = dotsContainer.querySelectorAll('button');
 
         function goToSlide(n) {
-            // Hide current slide and deactivate dot
-            if (slides[currentSlide]) slides[currentSlide].classList.remove('opacity-100');
-            if (dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.remove('bg-white');
+            // Deactivate the old slide and dot
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.remove('bg-white');
+                dots[currentSlide].classList.add('bg-white/50');
+            }
             
             // Calculate next slide index
             currentSlide = (n + slides.length) % slides.length;
             
-            // Show new slide and activate dot
-            if (slides[currentSlide]) slides[currentSlide].classList.add('opacity-100');
-            if (dots.length > 0 && dots[currentSlide]) dots[currentSlide].classList.add('bg-white');
+            // Activate the new slide and dot
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.remove('bg-white/50');
+                dots[currentSlide].classList.add('bg-white');
+            }
         }
 
         // Button event listeners
@@ -87,13 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         function handleSwipe() {
+            // Swiped left
             if (touchEndX < touchStartX - 50) {
-                // Swiped left
                 goToSlide(currentSlide + 1);
                 resetInterval();
             }
+            // Swiped right
             if (touchEndX > touchStartX + 50) {
-                // Swiped right
                 goToSlide(currentSlide - 1);
                 resetInterval();
             }
@@ -166,13 +171,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }, false);
 
         function handleTestimonialSwipe() {
+            // Swiped left
             if (testimonialTouchEndX < testimonialTouchStartX - 50) {
-                // Swiped left
                 showTestimonial(currentTestimonial + 1);
                 resetTestimonialInterval();
             }
+            // Swiped right
             if (testimonialTouchEndX > testimonialTouchStartX + 50) {
-                // Swiped right
                 showTestimonial(currentTestimonial - 1);
                 resetTestimonialInterval();
             }
