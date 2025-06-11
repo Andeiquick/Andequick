@@ -12,19 +12,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="rastreo.css">
+    <style>
+        /* CAMBIO: Clase para texto extra pequeño */
+        .text-xxs {
+            font-size: 0.65rem; /* ~10.4px, más pequeño que text-xs */
+            line-height: 1;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- ========== ENCABEZADO ========== -->
     <header id="main-header" class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/index.html" class="flex items-center space-x-2">
-                 <svg class="h-7 w-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <a href="../index.html" class="flex items-center space-x-2">
+                 <!-- CAMBIO: Logo y título más pequeños -->
+                 <svg class="h-6 w-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                      <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" />
                  </svg>
-                 <span class="text-xl font-bold text-gray-900">Andequick</span>
+                 <span class="text-lg font-bold text-gray-900">Andequick</span>
             </a>
-            <a href="/index.html" class="text-sm font-medium text-gray-500 hover:text-blue-600 transition duration-300">← Volver al Inicio</a>
+            <a href="../index.html" class="text-sm font-medium text-gray-500 hover:text-blue-600 transition duration-300">← Volver al Inicio</a>
         </nav>
     </header>
 
@@ -55,7 +63,8 @@
                     <form id="tracking-form" class="space-y-6">
                         <div>
                             <label for="tracking-number" class="block text-sm font-semibold text-gray-700 mb-2">Número de Guía</label>
-                            <input type="text" name="tracking-number" id="tracking-number" class="block w-full bg-gray-50 border-gray-300 rounded-lg py-3 px-4 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition" placeholder="Ingresa tu código de seguimiento" required>
+                            <!-- CAMBIO: Placeholder más pequeño -->
+                            <input type="text" name="tracking-number" id="tracking-number" class="block w-full bg-gray-50 border-gray-300 rounded-lg py-3 px-4 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition placeholder:text-sm" placeholder="Ingresa tu código de seguimiento" required>
                         </div>
 
                         <fieldset>
@@ -63,20 +72,19 @@
                             <div class="mt-4 grid grid-cols-2 gap-4">
                                 <label for="servientrega" class="relative flex items-center p-4 rounded-lg border border-gray-300 bg-white cursor-pointer transition-all has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
                                     <input type="radio" name="carrier" id="servientrega" value="servientrega" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500" checked>
-                                    <!-- CAMBIO: Texto de opciones más pequeño -->
-                                    <span class="ml-3 text-xs font-medium text-gray-900">Servientrega</span>
+                                    <span class="ml-3 text-xxs font-medium text-gray-900">Servientrega</span>
                                 </label>
                                 <label for="gintracom" class="relative flex items-center p-4 rounded-lg border border-gray-300 bg-white cursor-pointer transition-all has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
                                     <input type="radio" name="carrier" id="gintracom" value="gintracom" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                                    <span class="ml-3 text-xs font-medium text-gray-900">Gintracom</span>
+                                    <span class="ml-3 text-xxs font-medium text-gray-900">Gintracom</span>
                                 </label>
                                 <label for="laarcourier" class="relative flex items-center p-4 rounded-lg border border-gray-300 bg-white cursor-pointer transition-all has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
                                     <input type="radio" name="carrier" id="laarcourier" value="laarcourier" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                                    <span class="ml-3 text-xs font-medium text-gray-900">LaarCourier</span>
+                                    <span class="ml-3 text-xxs font-medium text-gray-900">LaarCourier</span>
                                 </label>
                                  <label for="veloces" class="relative flex items-center p-4 rounded-lg border border-gray-300 bg-white cursor-pointer transition-all has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
                                      <input type="radio" name="carrier" id="veloces" value="veloces" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                                     <span class="ml-3 text-xs font-medium text-gray-900">Veloces</span>
+                                     <span class="ml-3 text-xxs font-medium text-gray-900">Veloces</span>
                                  </label>
                             </div>
                         </fieldset>
@@ -158,4 +166,3 @@
     <script src="rastreo.js"></script>
 </body>
 </html>
-
