@@ -45,49 +45,34 @@ body {
     visibility: visible;
 }
 
-
-/* --- REPOSICIONAMIENTO DE LAS FLECHAS DE TESTIMONIOS --- */
-#prevTestimonial, #nextTestimonial {
-    /* Nos aseguramos que las flechas sean visibles */
-    display: block;  
-    
-    /* Las mantenemos centradas verticalmente */
-    top: 50%;  
-    
-    /* Un z-index alto para que estén por encima de otros elementos */
-    z-index: 10;  
-}
-
-/* Flecha izquierda posicionada más abajo y fuera del área de las estrellas */
-#prevTestimonial {
-    position: absolute;
-    top: 60%; /* Estaba en 50%, la bajamos un poco */
-    left: 0.5rem;
-    transform: translateY(-50%);
-    z-index: 1; /* Menor prioridad que el contenido de estrellas */
-    background-color: white; /* Opcional: para que no se traslape visualmente */
-    border-radius: 9999px;
-    padding: 0.25rem;
-}
-
-/* Flecha derecha igual, para mantener simetría */
+/* Ocultar flechas por defecto (para móviles) */
+#prevTestimonial,
 #nextTestimonial {
-    position: absolute;
-    top: 60%;
-    right: 0.5rem;
-    transform: translateY(-50%);
-    z-index: 1;
-    background-color: white;
-    border-radius: 9999px;
-    padding: 0.25rem;
+    display: none;
 }
 
-/* Ocultar flechas en dispositivos pequeños (pantallas menores a 768px) */
-@media (max-width: 767px) {
+/* Mostrar flechas SOLO en pantallas a partir de 768px (tablets y PCs) */
+@media (min-width: 768px) {
     #prevTestimonial,
     #nextTestimonial {
-        display: none !important;
+        display: block;
+        
+        /* Centradas verticalmente */
+        top: 60%;
+        transform: translateY(-50%);
+        position: absolute;
+        background-color: white;
+        border-radius: 9999px;
+        padding: 0.25rem;
+        z-index: 1;
+    }
+
+    #prevTestimonial {
+        left: 0.5rem;
+    }
+
+    #nextTestimonial {
+        right: 0.5rem;
     }
 }
-
 
