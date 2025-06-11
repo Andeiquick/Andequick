@@ -82,4 +82,12 @@ body {
     padding: 0.25rem;
 }
 
+/* Ocultar flechas en dispositivos pequeños (pantallas menores a 768px) */
+@media (max-width: 767px) {
+    #prevTestimonial,
+    #nextTestimonial {
+        display: none !important;
+    }
+}
+
 
