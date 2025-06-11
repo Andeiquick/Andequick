@@ -40,39 +40,38 @@ body {
 }
 
 .testimonial-slide.active {
-    position: relative; /* Use relative to take up space and define container height */
+    position: relative; /* Use relative to take up espacio y definir altura */
     opacity: 1;
     visibility: visible;
 }
 
-/* Ocultar flechas por defecto (para móviles) */
+/* Ocultar flechas por defecto (en móviles) */
 #prevTestimonial,
 #nextTestimonial {
     display: none;
 }
 
-/* Mostrar flechas SOLO en pantallas a partir de 768px (tablets y PCs) */
+/* Mostrar y ubicar flechas FUERA del contenedor en pantallas grandes */
 @media (min-width: 768px) {
     #prevTestimonial,
     #nextTestimonial {
         display: block;
-        
-        /* Centradas verticalmente */
-        top: 60%;
-        transform: translateY(-50%);
         position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         background-color: white;
         border-radius: 9999px;
-        padding: 0.25rem;
-        z-index: 1;
+        padding: 0.5rem;
+        z-index: 10;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Opcional */
     }
 
     #prevTestimonial {
-        left: 0.5rem;
+        left: -2rem; /* ¡Flecha izquierda FUERA del contenedor! */
     }
 
     #nextTestimonial {
-        right: 0.5rem;
+        right: -2rem; /* ¡Flecha derecha FUERA del contenedor! */
     }
 }
 
