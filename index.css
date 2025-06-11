@@ -67,7 +67,7 @@ body {
 
 /* Posicionar la flecha DERECHA DENTRO del contenedor */
 #nextTestimonial {
-    right: 0.875rem; /* 14px desde la derecha */
+    right: 1.75rem; /* 14px desde la derecha */
     /* Anulamos la clase 'translate-x' de Tailwind para que no se mueva horizontalmente */
     transform: translateY(-50%);
 }
