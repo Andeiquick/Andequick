@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Main Hero Slider Logic ---
     const slider = document.getElementById('slider');
-    const slides = document.querySelectorAll('.slider-item');
+    const slides = slider ? slider.querySelectorAll('.slider-item') : [];
     const dotsContainer = document.getElementById('dots-container');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white/50', 'transition-colors', 'duration-300');
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
             dot.addEventListener('click', () => {
                 goToSlide(index);
                 resetInterval(); // Reset auto-slide on manual navigation
