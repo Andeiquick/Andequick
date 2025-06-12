@@ -24,10 +24,6 @@ body {
     left: 0;
 }
 
-.slider-item {
-    /* The transition is handled by Tailwind classes now for consistency */
-}
-
 /* Testimonial Slider Styles */
 .testimonial-slide {
     position: absolute;
@@ -46,9 +42,9 @@ body {
 }
 
 
-/* --- REPOSICIONAMIENTO DE LAS FLECHAS DE TESTIMONIOS --- */
+/* --- Positioning for Testimonial Arrows --- */
 #prevTestimonial, #nextTestimonial {
-    /* Ocultar las flechas por defecto en pantallas pequeñas (móviles) */
+    /* Hide arrows by default on small (mobile) screens */
     display: none;
     position: absolute;
     top: 50%;
@@ -56,19 +52,19 @@ body {
     z-index: 10;
 }
 
-/* Mostrar y posicionar las flechas fuera del contenedor en pantallas medianas y grandes */
+/* Show and position arrows outside the container on medium screens and larger */
 @media (min-width: 768px) {
     #prevTestimonial, #nextTestimonial {
         display: block;
     }
 
-    /* Posicionar la flecha IZQUIERDA FUERA del contenedor */
+    /* Position the LEFT arrow OUTSIDE the container */
     #prevTestimonial {
-        left: -3rem; /* Mueve la flecha fuera del borde izquierdo */
+        left: -3rem; /* Moves the arrow outside the left edge */
     }
 
-    /* Posicionar la flecha DERECHA FUERA del contenedor */
+    /* Position the RIGHT arrow OUTSIDE the container */
     #nextTestimonial {
-        right: -3rem; /* Mueve la flecha fuera del borde derecho */
+        right: -3rem; /* Moves the arrow outside the right edge */
     }
 }
