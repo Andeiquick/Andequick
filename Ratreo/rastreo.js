@@ -9,21 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedCarrier = document.querySelector('input[name="carrier"]:checked');
             
             if (!trackingNumberInput.value.trim()) {
+                // Crear y mostrar un modal personalizado en lugar de alert()
                 const modal = document.createElement('div');
-                modal.style.position = 'fixed';
-                modal.style.left = '0';
-                modal.style.top = '0';
-                modal.style.width = '100%';
-                modal.style.height = '100%';
-                modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
-                modal.style.display = 'flex';
-                modal.style.justifyContent = 'center';
-                modal.style.alignItems = 'center';
-                modal.style.zIndex = '1000';
+                modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]';
                 modal.innerHTML = `
-                    <div style="background: white; padding: 2rem; border-radius: 0.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        <p style="margin-bottom: 1rem; color: #1f2937; font-size: 1.125rem;">Por favor, ingresa un número de guía.</p>
-                        <button id="closeModal" style="padding: 0.5rem 1rem; background-color: #2563eb; color: white; border: none; border-radius: 0.375rem; cursor: pointer; font-weight: 500;">Entendido</button>
+                    <div class="bg-white p-8 rounded-lg text-center shadow-xl max-w-sm w-full mx-4">
+                        <p class="mb-4 text-gray-800 text-lg">Por favor, ingresa un número de guía.</p>
+                        <button id="closeModal" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium">Entendido</button>
                     </div>
                 `;
                 document.body.appendChild(modal);
@@ -42,9 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     trackingUrl = `https://ec.gintracom.site/web/site/tracking?q=${trackingNumber}`;
                     break;
                 case 'laarcourier':
+                    // Para LaarCourier, es mejor abrir su página principal de rastreo
+                    // ya que el número de guía debe ingresarse manualmente.
                     trackingUrl = 'https://fenixoper.laarcourier.com/Tracking/Guiacompleta.aspx';
                     break;
                 case 'veloces':
+                    // Similar a Laar, abrimos la página principal de rastreo.
                     trackingUrl = 'https://tracking.veloces.app/';
                     break;
             }
