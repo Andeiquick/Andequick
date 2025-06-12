@@ -5,32 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguimiento de Envío - Andequick</title>
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="rastreo.css">
-    <style>
-        /* CAMBIO: Clase para texto extra pequeño */
-        .text-xxs {
-            font-size: 0.65rem; /* ~10.4px, más pequeño que text-xs */
-            line-height: 1;
-        }
-    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- ========== ENCABEZADO ========== -->
     <header id="main-header" class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="../index.html" class="flex items-center space-x-2">
-                 <!-- CAMBIO: Logo y título más pequeños -->
-                 <svg class="h-6 w-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" />
-                 </svg>
-                 <span class="text-lg font-bold text-gray-900">Andequick</span>
+                <svg class="h-6 w-auto text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 12.66L5.5 9.33L12 6L18.5 9.33L12 12.66Z" />
+                </svg>
+                <span class="text-lg font-bold text-gray-900">Andequick</span>
             </a>
             <a href="../index.html" class="text-sm font-medium text-gray-500 hover:text-blue-600 transition duration-300">← Volver al Inicio</a>
         </nav>
@@ -63,7 +58,6 @@
                     <form id="tracking-form" class="space-y-6">
                         <div>
                             <label for="tracking-number" class="block text-sm font-semibold text-gray-700 mb-2">Número de Guía</label>
-                            <!-- CAMBIO: Placeholder más pequeño -->
                             <input type="text" name="tracking-number" id="tracking-number" class="block w-full bg-gray-50 border-gray-300 rounded-lg py-3 px-4 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition placeholder:text-sm" placeholder="Ingresa tu código de seguimiento" required>
                         </div>
 
@@ -105,7 +99,7 @@
     
     <!-- ========== PIE DE PÁGINA ========== -->
     <footer class="bg-gray-900 text-gray-400">
-        <div class="container mx-auto px-6 py-12">
+        <div class="max-w-screen-xl mx-auto px-6 py-12">
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                 <div class="col-span-2 md:col-span-4 lg:col-span-1">
                     <a href="/index.html" class="flex items-center space-x-2">
@@ -117,9 +111,9 @@
                 <div>
                     <h3 class="font-semibold text-white tracking-wider uppercase text-sm">Políticas</h3>
                     <ul class="mt-4 space-y-3">
-                        <li><a href="/Polticas/garantia/garantia.html" class="text-sm text-gray-400 hover:text-white">Garantía</a></li>
-                        <li><a href="/Polticas/envios/envios.html" class="text-sm text-gray-400 hover:text-white">Envíos</a></li>
-                        <li><a href="/Polticas/terminos/terminos.html" class="text-sm text-gray-400 hover:text-white">Términos</a></li>
+                        <li><a href="/Polticas/garantia.html" class="text-sm text-gray-400 hover:text-white">Garantía</a></li>
+                        <li><a href="/Polticas/envios.html" class="text-sm text-gray-400 hover:text-white">Envíos</a></li>
+                        <li><a href="/Polticas/terminos.html" class="text-sm text-gray-400 hover:text-white">Términos</a></li>
                     </ul>
                 </div>
                 <div>
@@ -163,6 +157,7 @@
         </div>
     </footer>
 
-    <script src="rastreo.js"></script>
+    <script src="rastreo.js" defer></script>
 </body>
 </html>
+
