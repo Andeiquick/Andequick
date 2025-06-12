@@ -6,3 +6,7 @@ body {
     background-color: #f3f4f6; /* Un gris un poco más claro para el fondo */
     color: #111827;
 }
+.text-xxs {
+    font-size: 0.65rem; /* ~10.4px, más pequeño que text-xs */
+    line-height: 1;
+}
